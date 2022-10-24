@@ -1,7 +1,10 @@
 import unittest
-import data_processor as dp
-import numpy
+import numpy as np
 from numpy import random
+import sys
+sys.path.append('../')
+import data_processor as dp # nopep8
+
 
 class TestUtils(unittest.TestCase):
     @classmethod
@@ -12,7 +15,6 @@ class TestUtils(unittest.TestCase):
     @classmethod
     def tearDown(self):
         random_matrix = None
-
 
     def test_random_matrix(self):
         m = 3; n = 2
