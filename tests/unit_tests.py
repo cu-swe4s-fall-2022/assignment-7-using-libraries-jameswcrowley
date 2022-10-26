@@ -17,14 +17,21 @@ class TestUtils(unittest.TestCase):
         random_matrix = None
 
     def test_random_matrix(self):
-        m = 3; n = 2
+        # 1. Adding tests to raise error when n, m not integers
+        m = 3.5
+        n = 2
+        with self.assertRaises(TypeError):
+            dp.get_random_matrix(m, n)
+
+        m = 3
+        n = 2
         util_matrix = dp.get_random_matrix(m, n)
 
-        # 1. Testing the shape of the returned matrix
+        # 2. Testing the shape of the returned matrix
         self.assertEqual(np.shape(util_matrix)[0], m)
         self.assertEqual(np.shape(util_matrix)[1], n)
 
-        # 2. Testing if the matrix is random:
+        # 3. Testing if the matrix is random:
         util_matrix = dp.get_random_matrix(m, n)
 
         element_0_0 = util_matrix[0, 0]
