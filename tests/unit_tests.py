@@ -51,5 +51,9 @@ class TestUtils(unittest.TestCase):
         self.assertEqual(size[0], function_size[0])
         self.assertEqual(size[1], function_size[1])
 
+        # 2. Testing that it raises an error if passed in the wrong file.
+        with self.assertRaises(FileNotFoundError):
+            dp.get_file_dimensions('this_file_doesnt_exist.data')
+
 
 
