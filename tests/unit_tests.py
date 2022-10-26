@@ -41,3 +41,19 @@ class TestUtils(unittest.TestCase):
             element_0_0_list.append(temp_element_0_0)
 
         self.assertNotEqual(np.mean(element_0_0_list), element_0_0)
+
+    def test_get_file_dimensions(self):
+        test_csv = '../iris.data'
+        size = [150, 5]
+        function_size = dp.get_file_dimensions(test_csv)
+
+        # 1. Testing that the function returns the right size for a test file:
+        self.assertEqual(size[0], function_size[0])
+        self.assertEqual(size[1], function_size[1])
+
+        # 2. Testing that it raises an error if passed in the wrong file.
+        with self.assertRaises(FileNotFoundError):
+            dp.get_file_dimensions('this_file_doesnt_exist.data')
+
+
+
