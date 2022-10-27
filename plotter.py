@@ -15,7 +15,6 @@ def make_plots(file_name):
                    'species']
     iris_df.columns = iris_labels
 
-
     measurement_labels = ['sepal width',
                           'sepal_length',
                           'petal_width',
@@ -52,19 +51,14 @@ def make_plots(file_name):
     for species_i in set(iris_df['species']):
         species_subset = iris_df[iris_df['species'] == species_i]
         axes[1].scatter(species_subset['petal_width'],
-                           species_subset['petal_length'],
-                           label=species_i)
+                        species_subset['petal_length'],
+                        label=species_i)
     plt.legend()
     axes[1].set_xlabel('petal_width')
     axes[1].set_ylabel('petal_length')
 
-
-    # removing the top right border of each plot:
     for i in range(2):
         axes[i].spines['top'].set_visible(False)
         axes[i].spines['right'].set_visible(False)
 
-
     plt.savefig('./plots/multi_panel_figure.png')
-
-
