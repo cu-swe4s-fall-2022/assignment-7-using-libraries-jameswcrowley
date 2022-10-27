@@ -61,7 +61,6 @@ class TestUtils(unittest.TestCase):
 
     def test_write_matrix_to_file(self):
         file_name = 'test_write_file.txt'
-        #os.remove('./' + file_name)
 
         # check that we successfully deleted files before testing rest
         with self.assertRaises(FileNotFoundError):
@@ -81,6 +80,3 @@ class TestUtils(unittest.TestCase):
 
         self.assertEqual(test_data_frame.shape[0], n)
         self.assertEqual(test_data_frame.shape[1], m)
-
-        #os.remove('./' + file_name)
-
