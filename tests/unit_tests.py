@@ -84,6 +84,8 @@ class TestUtils(unittest.TestCase):
         self.assertEqual(test_data_frame.shape[0], n)
         self.assertEqual(test_data_frame.shape[1], m)
 
+        os.remove('./' + file_name)
+
 
 
 
