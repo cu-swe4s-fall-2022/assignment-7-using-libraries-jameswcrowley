@@ -1,8 +1,10 @@
 import numpy as np
 import sys
 import argparse
+
 sys.path.append('../')
 import data_processor as dp  # nopep8
+
 
 def main():
     parser = argparse.ArgumentParser()
@@ -30,4 +32,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
