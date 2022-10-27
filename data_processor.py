@@ -11,7 +11,7 @@ def get_file_dimensions(file_name):
 	return data_shape
 
 def write_matrix_to_file(num_rows, num_columns, file_name):
-	random_matrix = np.zeros((2,2))
+	random_matrix = get_random_matrix(num_rows, num_columns)
 	random_dataframe = pd.DataFrame(random_matrix)
 
 	random_dataframe.to_csv(file_name)
