@@ -12,7 +12,14 @@ seen by commits/merges.
    reading in a csv data dile into a matrix, and writing a random matrix to a csv.
     - All developed through test driven development.
     - All functions have unit tests, and comments of specific usage are found in this file.
-2. unit_tests.py:
+2. plotter.py:
+    - Uses iris data to produce three figures: a boxplot, a scatterplot, and a combo plot.
+    - Saves these to ./plots.
+    - Example of combo plot:
+   
+![](./plots/multi_panel_figure.png)
+
+3. unit_tests.py:
    - includes unit tests for data_processor.py and plotter.
    - implemented with continuous integration. 
 3. run_functional.py / functional_tests.sh:
