@@ -1,4 +1,4 @@
-name: Continuous Integration Testing, Assignment 5
+name: Continuous Integration Testing, Assignment 7
 
 on:
   push:
@@ -17,7 +17,7 @@ jobs:
 #      - uses: actions/checkout@v2
 #      - uses: conda-incubator/setup-miniconda@v2
 #        with:
-#          activate-environment: swe4s_assignment5
+#          activate-environment: swe4s_assignment7
 #          environment-file: env.yml
 #      - run: bash test_search.sh
 
@@ -30,7 +30,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: conda-incubator/setup-miniconda@v2
         with:
-          activate-environment: swe4s_assignment5
+          activate-environment: swe4s_assignment7
           environment-file: env.yml
       - run: pycodestyle $(git ls-files "*.py")
 
@@ -40,7 +40,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: conda-incubator/setup-miniconda@v2
         with:
-          activate-environment: swe4s_assignment5
+          activate-environment: swe4s_assignment7
           environment-file: env.yml
       - run: | # this is for running multi-line commands.
           python -m pip install --upgrade pip
