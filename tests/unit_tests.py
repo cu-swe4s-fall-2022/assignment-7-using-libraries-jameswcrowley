@@ -1,6 +1,7 @@
 import unittest
 import numpy as np
 from numpy import random
+import pandas as pd
 import sys
 import os
 sys.path.append('../')
@@ -74,6 +75,15 @@ class TestUtils(unittest.TestCase):
 
         dp.write_matrix_to_file(m, n, file_name)
         self.assertIn(file_name, os.listdir())
+
+        # Test 2: check the shape of the saved datafile.
+
+        test_data_frame = pd.read_csv(file_name,
+                                      delimiter=',',
+                                      header=None)
+
+        self.assertEqual(test_data_frame.shape[0], n)
+        self.assertEqual(test_data_frame.shape[1], m)
 
 
 
