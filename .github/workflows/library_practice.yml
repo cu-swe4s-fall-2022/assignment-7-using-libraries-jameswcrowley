@@ -8,18 +8,20 @@ on:
 
 jobs:
 
-#  functional_test:
-#    runs-on: ubuntu-latest
-#    defaults:
-#      run:
-#        shell: bash -l {0}
-#    steps:
-#      - uses: actions/checkout@v2
-#      - uses: conda-incubator/setup-miniconda@v2
-#        with:
-#          activate-environment: swe4s_assignment7
-#          environment-file: env.yml
-#      - run: bash test_search.sh
+  functional_test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash -l {0}
+    steps:
+      - uses: actions/checkout@v2
+      - uses: conda-incubator/setup-miniconda@v2
+        with:
+          activate-environment: swe4s_assignment7
+          environment-file: env.yml
+      - run: |
+          cd tests
+          bash functional_tests.sh
 
   code_style:
     runs-on: ubuntu-latest
