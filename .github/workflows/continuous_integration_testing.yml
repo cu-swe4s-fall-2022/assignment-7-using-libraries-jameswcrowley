@@ -1,0 +1,48 @@
+name: Continuous Integration Testing, Assignment 5
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+
+#  functional_test:
+#    runs-on: ubuntu-latest
+#    defaults:
+#      run:
+#        shell: bash -l {0}
+#    steps:
+#      - uses: actions/checkout@v2
+#      - uses: conda-incubator/setup-miniconda@v2
+#        with:
+#          activate-environment: swe4s_assignment5
+#          environment-file: env.yml
+#      - run: bash test_search.sh
+
+  code_style:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash -l {0}
+    steps:
+      - uses: actions/checkout@v2
+      - uses: conda-incubator/setup-miniconda@v2
+        with:
+          activate-environment: swe4s_assignment5
+          environment-file: env.yml
+      - run: pycodestyle $(git ls-files "*.py")
+
+  unit_tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: conda-incubator/setup-miniconda@v2
+        with:
+          activate-environment: swe4s_assignment5
+          environment-file: env.yml
+      - run: | # this is for running multi-line commands.
+          python -m pip install --upgrade pip
+          pip install numpy
+          python -m unittest test_utils
