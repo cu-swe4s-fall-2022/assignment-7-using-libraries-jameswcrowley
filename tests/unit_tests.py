@@ -2,6 +2,7 @@ import unittest
 import numpy as np
 from numpy import random
 import sys
+import os
 sys.path.append('../')
 import data_processor as dp # nopep8
 
@@ -54,6 +55,26 @@ class TestUtils(unittest.TestCase):
         # 2. Testing that it raises an error if passed in the wrong file.
         with self.assertRaises(FileNotFoundError):
             dp.get_file_dimensions('this_file_doesnt_exist.data')
+
+    def test_write_matrix_to_file(self):
+        file_name = 'test_write_file.txt'
+        try:
+            os.remove('./' + file_name) # nopep8
+
+        # check that we successfully deleted files before testing rest
+        with self.assertRaises(FileNotFoundError):
+            os.listdir('./test_write_file.txt')
+
+        # Test 1: checking that the function outputs a file
+        try:
+            os.remove('./' + file_name) # nopep8
+
+        n = 2
+        m = 3
+
+        dp.write_matrix_to_file(m, n, file_name)
+        self.assertIn(file_name, os.listdir())
+
 
 
 
