@@ -45,4 +45,4 @@ jobs:
       - run: | # this is for running multi-line commands.
           python -m pip install --upgrade pip
           pip install numpy
-          python -m unittest unit_tests
+          python -m unittest ./tests/unit_tests
