@@ -14,5 +14,5 @@ def write_matrix_to_file(num_rows, num_columns, file_name):
 	random_matrix = get_random_matrix(num_rows, num_columns)
 	random_dataframe = pd.DataFrame(random_matrix)
 
-	random_dataframe.to_csv(file_name)
+	random_dataframe.to_csv(file_name, header=None, index=None)
 

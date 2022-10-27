@@ -59,21 +59,20 @@ class TestUtils(unittest.TestCase):
 
     def test_write_matrix_to_file(self):
         file_name = 'test_write_file.txt'
-        try:
-            os.remove('./' + file_name) # nopep8
+        os.remove('./' + file_name)
 
         # check that we successfully deleted files before testing rest
         with self.assertRaises(FileNotFoundError):
-            os.listdir('./test_write_file.txt')
+            os.listdir('test_write_file.txt')
 
         # Test 1: checking that the function outputs a file
-        try:
-            os.remove('./' + file_name) # nopep8
+        #try:
+        #    os.remove('./' + file_name) # nopep8
 
         n = 2
         m = 3
 
-        dp.write_matrix_to_file(m, n, file_name)
+        dp.write_matrix_to_file(n, m, file_name)
         self.assertIn(file_name, os.listdir())
 
         # Test 2: check the shape of the saved datafile.
