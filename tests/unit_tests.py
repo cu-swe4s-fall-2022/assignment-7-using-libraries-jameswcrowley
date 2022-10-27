@@ -4,18 +4,20 @@ from numpy import random
 import pandas as pd
 import sys
 import os
+
 sys.path.append('../')
-import data_processor as dp # nopep8
+import data_processor as dp  # nopep8
 
 
 class TestUtils(unittest.TestCase):
     @classmethod
-    def setUp(self):
-        m = 3; n = 2
+    def setUp(cls):
+        m = 3
+        n = 2
         random_matrix = random.rand(3, 2)
 
     @classmethod
-    def tearDown(self):
+    def tearDown(cls):
         random_matrix = None
 
     def test_random_matrix(self):
@@ -65,10 +67,6 @@ class TestUtils(unittest.TestCase):
         with self.assertRaises(FileNotFoundError):
             os.listdir('test_write_file.txt')
 
-        # Test 1: checking that the function outputs a file
-        #try:
-        #    os.remove('./' + file_name) # nopep8
-
         n = 2
         m = 3
 
@@ -85,7 +83,4 @@ class TestUtils(unittest.TestCase):
         self.assertEqual(test_data_frame.shape[1], m)
 
         os.remove('./' + file_name)
-
-
-
 
